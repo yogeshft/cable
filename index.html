@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Cable Guy</title>
+</head>
+
+<body id="progressBarContainer">
+    <!-- -------------------------------------------
+                    navbar 
+        -------------------------- -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid position-relative">
+            <a class="navbar-brand" href="index.html"><img src="./assets/images/logo.png" alt="brand-logo"
+                    width="150px"></a>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"
+                    style="border: 1px solid #fff; border-radius: 4px; padding: 2px;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown text-md-start text-center">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" id="product-dropdown" aria-labelledby="productsDropdown">
+                            <li class="text-md-start text-center text-white"><a class="dropdown-item "
+                                    href="csm-service.html">SMS</a>
+                            </li>
+                            <li class="text-md-start text-center"><a class="dropdown-item"
+                                    href="sds-service.html">Software
+                                    Development</a></li>
+                            <li class="text-md-start text-center"><a class="dropdown-item"
+                                    href="app-service.html">Application</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item text-md-start text-center">
+                        <a class="nav-link" href="./about-us.html">About us</a>
+                    </li>
+                    <li class="nav-item text-md-start text-center">
+                        <a class="nav-link" href="./special.html">Features</a>
+                    </li>
+                    <li class="nav-item dropdown text-md-start text-center">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" id="product-dropdown" aria-labelledby="productsDropdown">
+                            <li class="text-md-start text-center text-white"><a class="dropdown-item " href="#">Product
+                                    1</a></li>
+                            <li class="text-md-start text-center"><a class="dropdown-item" href="#">Product 2</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item text-md-start text-center">
+                        <a class="nav-link" href="#">Pay Cable bill</a>
+                    </li>
+                    <li class="nav-item text-md-start text-center">
+                        <a class="nav-link" href="#">Log in</a>
+                    </li>
+                    <li class="nav-item text-md-start text-center">
+                        <a class="nav-link" href="contact.html">Request Demo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- -------------------------------------------
+                    hero
+        -------------------------- -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to CableGuy</h1>
+                <p>CableGuy offers end-to-end cable TV automation solutions for MSOs and LCOs, simplifying subscriber
+                    management
+                    and enhancing the subscriber experience.</p>
+                <button id="primary-btn">Learn More</button>
+            </div>
+        </div>
+    </section>
+    <!-- -------------------------------------------
+                our-services
+        -------------------------- -->
+    <!-- ---------------------------------------------------------------
+                                  about us
+     --------------------------------------------------------------------->
+    <h1 id="about-us-heading">About Us</h1>
+    <section class="about-us" id="about-us">
+        <div class="about-points">
+            <h1>What Makes us Unique</h1>
+            <ul>
+                <li>Innovative cable billing and accounting software.</li>
+                <li>Tailored for cable operators.</li>
+                <li>Simplifies STB, authorization, and package management.</li>
+                <li>Innovative cable billing and accounting software.</li>
+                <li>Efficient work order and inventory tracking.</li>
+                <li>Streamlined payment monitoring.</li>
+                <li>Revolutionizes cable operator processes.</li>
+                <li>Ensures accuracy and efficiency.</li>
+            </ul>
+            <div class="about-btn">
+                <a href="about-us.html"><button id="primary-btn">Learn More</button></a>
+                <a href="contact.html"><button id="primary-btn">Contact Us</button></a>
+            </div>
+        </div>
+        <div class="rotating-globe">
+            <!-- <div class="globe-container">
+                <img src="./assets/images/Earth.svg" alt="rotating-globe">
+            </div> -->
+            <div id="chartdiv"></div>
+        </div>
+    </section>
+    <!-- -------------------------------------------------------------------
+                                special features
+     -------------------------------------------------------------->
+    <section class="special-features" id="special-features">
+        <div class="special-heading">
+            <h1>Special Features</h1>
+        </div>
+        <div class="expand-collapse">
+            <button type="button" class="collapsible-btn" id="collapse-btn">Open Collapsible</button>
+            <div class="collapse-content">
+                <div class="collapse-element">
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <div class="expand-collapse">
+            <button type="button" class="collapsible-btn" id="collapse-btn">Open Collapsible</button>
+            <div class="collapse-content">
+                <div class="collapse-element">
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                </div>
+                <!-- <button id="primary-btn">Learn More</button> -->
+            </div>
+        </div>
+        <div class="expand-collapse">
+            <button type="button" class="collapsible-btn" id="collapse-btn">Open Collapsible</button>
+            <div class="collapse-content">
+                <div class="collapse-element">
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./assets/icons/collapse-icon.svg" alt="expand icon">
+                        <figcaption>SUBSCRIBER MANAGEMENT SYSTEM</figcaption>
+                    </figure>
+                </div>
+                <!-- <button id="primary-btn">Learn More</button> -->
+            </div>
+        </div>
+    </section>
+    <!-- -------------------------------------------------------------------
+                              contact us
+     -------------------------------------------------------------->
+    <h1 id="contact-us-heading">Contact Us</h1>
+    <section class="contact-us">
+        <div class="contact expand-collapse">
+            <button class="collapsible-btn" id="collapse-btn">
+                OFFICE ADDRESS
+            </button>
+            <div class="collapse-content">
+                <div class="address-section">
+                    <div class="contact-us-icon">
+                        <i class="fas fa-map-marker blue-icon"></i>
+                        <p>
+                            CableGuy CATV Business Process Automation Private Limited, 509, 5th Floor, Ostwal
+                            Shopping
+                            Center, Opp. Bhayander Railway Station, Bhayander East, Thane - 401105
+                        </p>
+                    </div>
+
+                </div>
+                <div class="map-section">
+                    <!-- Embed your map here, such as an iframe from Google Maps -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.678901234567!2d-78.1234567!3d40.9876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMzfCsDI3JzE1LjMiTiA3OMKwMzInMDMuMCJX!5e0!3m2!1sen!2sus!4v1234567890"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            <button class="collapsible-btn" id="collapse-btn">
+                EMAIL-US
+            </button>
+            <div class="collapse-content">
+                <div class="address-section">
+                    <div class="contact-us-icon">
+                        <i class="fas fa-envelope blue-icon"></i>
+                        <div class="map-section">
+                            <p>support@cableguy.in <br> info@cableguy.in</p>
+                        </div>
+                    </div>
+                    <p>Send us your query anytime!</p>
+                </div>
+            </div>
+            <button class="collapsible-btn" id="collapse-btn">
+                CALL US
+            </button>
+            <div class="collapse-content">
+                <div class="address-section">
+                    <div class="contact-us-icon">
+                        <i class="fas fa-phone blue-icon"></i>
+                        <div class="map-section">
+                            <p>9702499222 <br> 9702797021</p>
+                        </div>
+                    </div>
+                    <p>Mon to Fri 10am to 8pm</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- contact form -->
+        <div class="contact contact-form">
+            <form>
+                <div class="user-names">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input type="text" class="input-field" id="first-name" name="first-name" required>
+                            <label for="first-name" class="input-label">First Name</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input type="text" class="input-field" id="last-name" name="last-name" required>
+                            <label for="last-name" class="input-label">Last Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-email">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input type="email" class="input-field" id="email" name="email" required>
+                            <label for="email" class="input-label">Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <input type="tel" class="input-field" id="phone" name="phone" required>
+                            <label for="phone" class="input-label">Number</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="subject" value="General" required> General</label>
+                            <label><input type="radio" name="subject" value="Support" required> Support</label>
+                            <label><input type="radio" name="subject" value="Billing" required> Billing</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <textarea class="input-field" id="message" name="message" required></textarea>
+                        <label for="message" class="input-label">Message</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!---------------------------------------------------------------------
+            Got Impressed by our features?
+     -------------------------------------------------------------->
+    <section class="got-impressed">
+        <h1>Got Impressed by our features?</h1>
+        <div class="impressed-body">
+            <p class=>CableGuy founded by IT professionals having 20 years of experience in Software
+                Development. Since, we developed a lot of web, mobile, and desktop applications with the latest
+                Microsoft and
+                many other technologies for our local and global clients. Cableguy offers services like Real-time
+                Transaction,
+                In-field printing, Dynamic Websites development, and mobile applications. We never compromise with
+                quality. We
+                have a dedicated team for each and every technical aspect, resulting in giving you the best services
+                with a
+                quality product at the given time frame.</p>
+            <button type="submit" id="primary-btn">Request Demo</button>
+        </div>
+    </section>
+
+    <!---------------------------------------------------
+                                 footer
+         ------------------------------------------------>
+    <footer class="footer">
+        <div class="column">
+            <img src="./assets/images/logo.png" alt="Company Logo" width="120" height="35">
+            <p>Streamlined Cable TV Automation Solutions for MSOs and LCOs.</p>
+            <ul class="social-icons">
+                <ul class="social-icons">
+                    <li><a href="https://www.facebook.com" class="social-link"><i
+                                class="fab fa-facebook social-icon"></i></a>
+                    </li>
+                    <li><a href="https://www.twitter.com" class="social-link"><i
+                                class="fab fa-twitter social-icon"></i></a></li>
+                    <li><a href="https://www.linkedin.com" class="social-link"><i
+                                class="fab fa-linkedin social-icon"></i></a>
+                    </li>
+                </ul>
+
+
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Company</h3>
+            <ul>
+                <li><a href="#">Event</a></li>
+                <li><a href="#">FAQ's</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Career Page</a></li>
+                <li><a href="#">Testimonial</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Get in Touch</h3>
+            <ul>
+                <li><i class="fas fa-phone contact-icon social-icon"></i> Phone: (123) 456-7890</li>
+                <li><i class="fas fa-envelope contact-icon social-icon"></i> Email: info@example.com</li>
+                <li><i class="fas fa-map-pin contact-icon social-icon"></i> Address: 123 Main St, City</li>
+
+            </ul>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+

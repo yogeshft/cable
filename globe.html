@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+            max-width: 100%;
+            background-color: #050519;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chartdiv"></div>
+    <script>
+        am4core.useTheme(am4themes_animated);
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+        chart.geodata = am4geodata_worldLow;
+        chart.projection = new am4maps.projections.Orthographic();
+        chart.panBehavior = "rotateLongLat";
+        chart.deltaLatitude = -20;
+        chart.padding(20, 20, 20, 20);
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+        polygonSeries.useGeodata = true;
+        var polygonTemplate = polygonSeries.mapPolygons.template;
+        polygonTemplate.tooltipText = "{name}";
+        polygonTemplate.fill = am4core.color("#2b72fb");
+        polygonTemplate.stroke = am4core.color("black");
+        polygonTemplate.strokeWidth = 0.5;
+        polygonTemplate.cursorOverStyle = am4core.MouseCursorStyle.pointer;
+        polygonTemplate.url = "https://www.datadrum.com/main.php?package={id}";
+        polygonTemplate.urlTarget = "_blank";
+        var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
+        graticuleSeries.mapLines.template.line.stroke = am4core.color("#ffffff");
+        graticuleSeries.mapLines.template.line.strokeOpacity = 0.08;
+        graticuleSeries.fitExtent = false;
+        chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 0.1;
+        chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#ffffff");
+        var hs = polygonTemplate.states.create("hover");
+        hs.properties.fill = chart.colors.getIndex(0).brighten(-0.5);
+        let animation;
+        setTimeout(function () {
+            animation = chart.animate({ property: "deltaLongitude", to: 100000 }, 20000000);
+        }, 3000)
+        chart.seriesContainer.events.on("down", function () {
+        })
+    </script>
+</body>
+
+</html>
