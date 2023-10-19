@@ -722,12 +722,13 @@ footer ul a {
 }
 
 /* ****************************************************************
-special
+      special features page 
 ******************************************************** */
+
 /* ********************************
           header
 ******************************** */
-.special-hero-header {
+/* .special-hero-header {
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -785,7 +786,54 @@ special
   text-align: center;
   color: white;
   margin-top: 40px;
+} */
+
+.special-hero-header {
+  display: flex;
+  height: 100vh;
+  max-width: 90%;
+  margin: 0 auto; /* Center the hero horizontally */
+  color: white;
 }
+
+.special-hero-heading {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px; /* Adjust the margin as needed */
+}
+
+.special-hero-heading h1 {
+  font-family: "Abril Fatface", serif;
+  font-size: 3.5rem;
+  white-space: pre-line;
+  text-align: center; /* Center the text */
+}
+
+.special-hero-img {
+  flex: 1;
+  margin-top: 20px; /* Add margin to the top for spacing between text and image */
+}
+
+@media (max-width: 768px) {
+  .special-hero-header {
+    flex-direction: column;
+  }
+
+  .special-hero-heading,
+  .special-hero-img {
+    width: 100%;
+    margin: 20px 0; /* Add margin for spacing between elements */
+  }
+
+  .special-hero-heading h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+  }
+}
+
+
 /* *********************************************************
                       services PAGE
 *********************************************************** */
@@ -1407,7 +1455,7 @@ main .ag-format-container {
 }
 
 /* *****************************************************************************8
-                      CONACT PAGE 
+                      CONTACT PAGE 
 ******************************************************************8********/
 .special-hero-header {
   display: flex;
